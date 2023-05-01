@@ -10,13 +10,13 @@ import pydantic
 
 from ...core.api_error import ApiError
 from ...core.remove_none_from_headers import remove_none_from_headers
-from ...environment import PaveApiEnvironment
+from ...environment import PaveEnvironment
 from .types.get_financial_health_response import GetFinancialHealthResponse
 from .types.get_recurring_expenditures_response import GetRecurringExpendituresResponse
 
 
 class CashflowClient:
-    def __init__(self, *, environment: PaveApiEnvironment = PaveApiEnvironment.PRODUCTION, api_key: str):
+    def __init__(self, *, environment: PaveEnvironment = PaveEnvironment.PRODUCTION, api_key: str):
         self._environment = environment
         self.api_key = api_key
 
@@ -58,7 +58,7 @@ class CashflowClient:
 
 
 class AsyncCashflowClient:
-    def __init__(self, *, environment: PaveApiEnvironment = PaveApiEnvironment.PRODUCTION, api_key: str):
+    def __init__(self, *, environment: PaveEnvironment = PaveEnvironment.PRODUCTION, api_key: str):
         self._environment = environment
         self.api_key = api_key
 

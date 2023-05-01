@@ -3,6 +3,6 @@
 import enum
 
 
-class PaveApiEnvironment(enum.Enum):
+class PaveEnvironment(enum.Enum):
     PRODUCTION = "https://api.pave.dev/"
     SANDBOX = "https://sandbox.pave.dev/"

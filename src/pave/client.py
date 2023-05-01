@@ -2,12 +2,12 @@
 
 from backports.cached_property import cached_property
 
-from .environment import PaveApiEnvironment
+from .environment import PaveEnvironment
 from .resources.cashflow.client import AsyncCashflowClient, CashflowClient
 
 
-class PaveApi:
-    def __init__(self, *, environment: PaveApiEnvironment = PaveApiEnvironment.PRODUCTION, api_key: str):
+class Pave:
+    def __init__(self, *, environment: PaveEnvironment = PaveEnvironment.PRODUCTION, api_key: str):
         self._environment = environment
         self.api_key = api_key
 
@@ -16,8 +16,8 @@ class PaveApi:
         return CashflowClient(environment=self._environment, api_key=self.api_key)
 
 
-class AsyncPaveApi:
-    def __init__(self, *, environment: PaveApiEnvironment = PaveApiEnvironment.PRODUCTION, api_key: str):
+class AsyncPave:
+    def __init__(self, *, environment: PaveEnvironment = PaveEnvironment.PRODUCTION, api_key: str):
         self._environment = environment
         self.api_key = api_key
 
