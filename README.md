@@ -33,6 +33,27 @@ user_financial_health = pave_client.cashflow.get_financial_health(
 print(user_financial_health)
 ```
 
+## Async client
+
+This SDK also includes an async client, which supports the `await` syntax:
+
+```python
+import asyncio
+from pave.client import AsyncPave
+
+pave_client = AsyncPave(api_key="YOUR_API_KEY")
+
+async def get_user_financial_health() -> None:
+    user_financial_health = await pave_client.cashflow.get_financial_health(
+        user_id='USER_ID',
+        start_date=dt.datetime(2020, 5, 17),
+        end_date=dt.datetime(2022, 2, 15),
+    )
+    print(user_financial_health)
+
+asyncio.run(get_user_financial_health())
+```
+
 ## Beta status
 
 This SDK is in beta, and there may be breaking changes between versions without a major version update. Therefore, we recommend pinning the package version to a specific version in your pyproject.toml file. This way, you can install the same version each time without breaking changes unless you are intentionally looking for the latest version.
