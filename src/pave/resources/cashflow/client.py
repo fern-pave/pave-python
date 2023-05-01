@@ -9,6 +9,7 @@ import httpx
 import pydantic
 
 from ...core.api_error import ApiError
+from ...core.jsonable_encoder import jsonable_encoder
 from ...core.remove_none_from_headers import remove_none_from_headers
 from ...environment import PaveEnvironment
 from .types.get_financial_health_response import GetFinancialHealthResponse
@@ -26,7 +27,11 @@ class CashflowClient:
         _response = httpx.request(
             "GET",
             urllib.parse.urljoin(f"{self._environment.value}/", f"v1/users/{user_id}/financial_health"),
-            params={"start_date": start_date, "end_date": end_date, "with_transactions": with_transactions},
+            params={
+                "start_date": str(start_date),
+                "end_date": str(end_date),
+                "with_transactions": jsonable_encoder(with_transactions),
+            },
             headers=remove_none_from_headers({"X-API-KEY": self.api_key}),
             timeout=60,
         )
@@ -44,7 +49,7 @@ class CashflowClient:
         _response = httpx.request(
             "GET",
             urllib.parse.urljoin(f"{self._environment.value}/", f"v1/users/{user_id}/recurring_expenditures"),
-            params={"start_date": start_date, "end_date": end_date, "with_transactions": with_transactions},
+            params={"start_date": str(start_date), "end_date": str(end_date), "with_transactions": with_transactions},
             headers=remove_none_from_headers({"X-API-KEY": self.api_key}),
             timeout=60,
         )
@@ -69,7 +74,11 @@ class AsyncCashflowClient:
             _response = await _client.request(
                 "GET",
                 urllib.parse.urljoin(f"{self._environment.value}/", f"v1/users/{user_id}/financial_health"),
-                params={"start_date": start_date, "end_date": end_date, "with_transactions": with_transactions},
+                params={
+                    "start_date": str(start_date),
+                    "end_date": str(end_date),
+                    "with_transactions": jsonable_encoder(with_transactions),
+                },
                 headers=remove_none_from_headers({"X-API-KEY": self.api_key}),
                 timeout=60,
             )
@@ -88,7 +97,11 @@ class AsyncCashflowClient:
             _response = await _client.request(
                 "GET",
                 urllib.parse.urljoin(f"{self._environment.value}/", f"v1/users/{user_id}/recurring_expenditures"),
-                params={"start_date": start_date, "end_date": end_date, "with_transactions": with_transactions},
+                params={
+                    "start_date": str(start_date),
+                    "end_date": str(end_date),
+                    "with_transactions": with_transactions,
+                },
                 headers=remove_none_from_headers({"X-API-KEY": self.api_key}),
                 timeout=60,
             )
