@@ -1,19 +1,36 @@
 
-# {Company} Python Library
+# Pave Python Library
 
-[![pypi](https://img.shields.io/pypi/v/{company}.svg)](https://pypi.python.org/pypi/{company})
+[![pypi](https://img.shields.io/pypi/v/fern-pave.svg)](https://pypi.python.org/pypi/fern-pave)
 [![fern shield](https://img.shields.io/badge/%F0%9F%8C%BF-SDK%20generated%20by%20Fern-brightgreen)](https://github.com/fern-api/fern)
 
 ## Documentation
 
-API documentation is available at <{docs_url}>.
+API documentation is available at <https://docs.pave.dev/>.
+
+## Installation
+
+```bash
+pip install fern-pave
+# or
+poetry add fern-pave
+```
 
 ## Usage
 
-Check out the [sample app](.sample-app/app.py) which consumes this SDK!
-
 ```python
-TODO
+import datetime as dt
+from pave.client import Pave
+
+pave_client = Pave(api_key="YOUR_API_KEY")
+
+user_financial_health = pave_client.cashflow.get_financial_health(
+    user_id='USER_ID',
+    start_date=dt.datetime(2020, 5, 17),
+    end_date=dt.datetime(2022, 2, 15),
+)
+
+print(user_financial_health)
 ```
 
 ## Beta status
