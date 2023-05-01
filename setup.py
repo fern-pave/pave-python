@@ -1,4 +1,4 @@
-from setuptools import setup  # type: ignore
+from setuptools import setup
 
 # read the contents of your README file
 from pathlib import Path
