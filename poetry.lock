@@ -149,7 +149,7 @@ idna2008 = ["idna"]
 name = "setuptools"
 version = "67.7.2"
 description = "Easily download, build, install, upgrade, and uninstall Python packages"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 
@@ -191,6 +191,14 @@ optional = false
 python-versions = "*"
 
 [[package]]
+name = "types-setuptools"
+version = "67.7.0.0"
+description = "Typing stubs for setuptools"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "typing-extensions"
 version = "4.5.0"
 description = "Backported and Experimental Type Hints for Python 3.7+"
@@ -201,7 +209,7 @@ python-versions = ">=3.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "6fb05f0b800aefba1c3d99be0195a9eeb88810450bee7679d9effb23de3b902f"
+content-hash = "ccf28228e1f20976efc727758faa50eb496ce32952c4ee88f11815ff92d394ad"
 
 [metadata.files]
 anyio = [
@@ -344,6 +352,10 @@ typed-ast = [
 types-backports = [
     {file = "types-backports-0.1.3.tar.gz", hash = "sha256:f4b7206c073df88d6200891e3d27506185fd60cda66fb289737b2fa92c0010cf"},
     {file = "types_backports-0.1.3-py2.py3-none-any.whl", hash = "sha256:dafcd61848081503e738a7768872d1dd6c018401b4d2a1cfb608ea87ec9864b9"},
+]
+types-setuptools = [
+    {file = "types-setuptools-67.7.0.0.tar.gz", hash = "sha256:f59b03c786510176c7601578d84d5e6c58e985de331f08036b2fe008408a63c1"},
+    {file = "types_setuptools-67.7.0.0-py3-none-any.whl", hash = "sha256:02ee794d41c282ecfc99e09d8115ca4c3c4395a9747d1a35fa4a6f243d7585e6"},
 ]
 typing-extensions = [
     {file = "typing_extensions-4.5.0-py3-none-any.whl", hash = "sha256:fb33085c39dd998ac16d1431ebc293a8b3eedd00fd4a32de0ff79002c19511b4"},
